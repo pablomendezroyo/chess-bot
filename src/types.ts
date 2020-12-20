@@ -2,7 +2,7 @@ export interface Player {
   id: string; // the location of this profile (always self-referencing)
   url: string; // the chess.com user's profile page (the username is displayed with the original letter case)
   username: string; // the username of this player
-  player_id: 41; // the non-changing Chess.com ID of this player
+  player_id: number; // the non-changing Chess.com ID of this player
   title: string; // (optional) abbreviation of chess title, if any
   status: string; // account status: closed, closed:fair_play_violations, basic, premium, mod, staff
   name: string; // (optional) the personal first and last name
@@ -61,6 +61,19 @@ export interface Chess960Daily extends GameType {}
 export interface ChessBlitz extends GameType {}
 export interface ChessRapid extends GameType {}
 export interface ChessBullet extends GameType {}
+
+export type GameTypes =
+  | "chess_daily"
+  | "chess_rapid"
+  | "chess_bullet"
+  | "chess_blitz";
+
+export type IsGame =
+  | Chess960Daily
+  | ChessBlitz
+  | ChessBullet
+  | ChessDaily
+  | ChessRapid;
 
 export interface GameType {
   last: {
