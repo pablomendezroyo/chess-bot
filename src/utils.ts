@@ -10,16 +10,16 @@ export function parsePlayerStats(playerStats: PlayerStats) {
   Object.entries(playerStats).map((item) => {
     if (item[0].trim() === "chess_daily") {
       const message = buildMessageStatsGame(item);
-      playerStatsMessage += `🌅 Ajedrez diario ` + message;
+      playerStatsMessage += `🌅 **Ajedrez diario** 📊:` + message;
     } else if (item[0].trim() === "chess_rapid") {
       const message = buildMessageStatsGame(item);
-      playerStatsMessage += `⌚️ Ajedrez rapido ` + message;
+      playerStatsMessage += `⌚️ **Ajedrez rapido** 📊:` + message;
     } else if (item[0].trim() === "chess_bullet") {
       const message = buildMessageStatsGame(item);
-      playerStatsMessage += `⏳ Ajedrez bala ` + message;
+      playerStatsMessage += `⏳ **Ajedrez bala** 📊:` + message;
     } else if (item[0].trim() === "chess_blitz") {
       const message = buildMessageStatsGame(item);
-      playerStatsMessage += `⌛️ Ajedrez blitz ` + message;
+      playerStatsMessage += `⌛️ **Ajedrez blitz** 📊:` + message;
     }
   });
   return playerStatsMessage;
@@ -27,5 +27,5 @@ export function parsePlayerStats(playerStats: PlayerStats) {
 }
 
 function buildMessageStatsGame(stats: [string, GameType]) {
-  return `*RECORD* 📊 : 🥇 ${stats[1].record.win} ganadas 🥇 | ❌ ${stats[1].record.win} perdidas ❌ | 🤏🏼 ${stats[1].record.draw} empates 🤏🏼\n`;
+  return ` 🥇 ${stats[1].record.win} ganadas 🥇 | ❌ ${stats[1].record.loss} perdidas ❌ | 🤏🏼 ${stats[1].record.draw} empates 🤏🏼\n`;
 }
